@@ -1,6 +1,7 @@
 import Project from "./modules/project";
 import Task from "./modules/task";
 import renderProject from "./modules/render";
+import addProjectButton from "./modules/projectEvents";
 import './styles.css';
 
 const dailyProject = Project('daily');
@@ -23,6 +24,6 @@ weeklyProject.addTask(finishProject);
 
 renderProject(weeklyProject);
 
-
+addProjectButton();
 
 console.log(dailyProject);

@@ -3,6 +3,7 @@
     --sidebar-background-color: #d1d5db;
     --main-content-background-color: #f3f4f6;
     --task-background-color: #9ca3af;
+    --form-background-color: #64748b;
 }
 
 * {
@@ -66,4 +67,19 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: var(--task-background-color);
+}
+
+#add-project-btn {
+    position: absolute;
+    bottom: 10px;
+}
+
+#project-popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--form-background-color);
+    padding: 10px;
+    border-radius: 10px;
 }
