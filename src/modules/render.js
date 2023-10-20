@@ -16,8 +16,8 @@ function renderProject(project) {
 function renderTask(task) {
     const taskContainer = document.createElement('div');
 
-    const taskTitle = document.createElement('h3');
-    taskTitle.textContent = task.title;
+    const taskName = document.createElement('h3');
+    taskName.textContent = task.name;
 
     const taskDueDate = document.createElement('div');
     taskDueDate.textContent = task.dueDate;
@@ -41,7 +41,7 @@ function renderTask(task) {
         taskContainer.classList.add('completed');
     }
 
-    taskContainer.appendChild(taskTitle);
+    taskContainer.appendChild(taskName);
     taskContainer.appendChild(taskDueDate);
     taskContainer.appendChild(taskPriority);
     document.getElementById('main').appendChild(taskContainer);

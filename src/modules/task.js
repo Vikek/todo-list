@@ -1,7 +1,7 @@
-const Task = (title, description, dueDate, priority) => {
+const Task = (name, description, dueDate, priority) => {
     let task = {};
 
-    task.title = title;
+    task.name = name;
     task.description = description;
     task.dueDate = dueDate;
     task.priority = priority;

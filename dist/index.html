@@ -18,11 +18,47 @@
                 <form class="form-container" id="form-project">
                     <h2>Add project</h2>
 
-                    <label for="name">name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="project-name">name</label>
+                    <input type="text" id="project-name" name="name" required>
 
                     <input type="submit" id="project-form-submit" value="Confirm">
                     <button type="button" id="project-form-close">Cancel</button>
+                </form>
+            </div>
+            <div class="popup-form" id="task-popup-form">
+                <form class="form-container" id="form-task">
+                    <h2>Add task</h2>
+
+                    <div class="row">
+                        <label for="task-name">name</label>
+                        <input type="text" id="task-name" name="name" required>
+                    </div>
+
+                    <div class="row">
+                        <label for="description">description</label>
+                        <input type="text" id="description" name="description">
+                    </div>
+
+                    <div class="row">
+                        <label for="dueDate">due date</label>
+                        <input type="date" id="dueDate" name="dueDate">
+                    </div>
+
+                    <label>priority</label>
+
+                    <div class="row radio-buttons">
+                        <label for="low">low</label>
+                        <input type="radio" name="priority" id="low" value="1">
+                        <label for="medium">medium</label>
+                        <input type="radio" name="priority" id="medium" value="2">
+                        <label for="high">high</label>
+                        <input type="radio" name="priority" id="high" value="3">
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" id="task-form-submit" value="Confirm">
+                        <button type="button" id="task-form-close">Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>
