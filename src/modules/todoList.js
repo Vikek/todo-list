@@ -1,17 +1,18 @@
-const TodoList = () => {
-    let todoList = {};
+const todoList = (function() {
+    let projects = [];
+    let activeProject;
 
-    todoList.projects = [];
-    todoList.currentProject;
-    todoList.setCurrentProject = function(project) {
-        todoList.currentProject = project;
+    function addProject(project) {
+        projects.push(project);
     }
-    todoList.getCurrentProject = function() {return todoList.currentProject};
-    todoList.addProject = function(project) {
-        todoList.project.push(project);
+    function setActiveProject(project) {
+        activeProject = project;
+    }
+    function getActiveProject() {
+        return activeProject;
     }
 
-    return todoList;
-}
+    return {addProject, setActiveProject, getActiveProject};
+})()
 
-export default TodoList;
+export default todoList;

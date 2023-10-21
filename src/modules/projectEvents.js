@@ -1,5 +1,6 @@
 import Project from "./project";
 import renderProject from "./render";
+import todoList from "./todoList";
 
 function addProjectButton() {
     const addProjectBtn = document.createElement('button');
@@ -28,6 +29,7 @@ function projectFormClose() {
 function projectFormOnSubmit(e) {
     const formObject = Object.fromEntries(new FormData(e.target).entries());
     const project = Project(formObject.name);
+    todoList.addProject(project);
     renderProject(project);
     e.target.reset();
     projectFormClose();

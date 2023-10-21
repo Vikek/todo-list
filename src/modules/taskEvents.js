@@ -1,4 +1,5 @@
 import Task from "./task";
+import todoList from "./todoList";
 
 function addTaskButton() {
     const addTaskBtn = document.createElement('button');
@@ -26,7 +27,9 @@ function taskFormClose() {
 function taskFormOnSubmit(e) {
     const formObject = Object.fromEntries(new FormData(e.target).entries());
     const task = Task(formObject.name, formObject.description, formObject.dueDate, formObject.priority);
-    console.log(task);
+    todoList.getActiveProject().addTask(task);
+    e.target.reset();
+    taskFormClose();
 }
 
 export default addTaskButton;
