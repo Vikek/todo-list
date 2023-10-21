@@ -24,6 +24,7 @@ renderProject(dailyProject);
 
 
 /////////////////daily
+/////////////////weekly
 const weeklyProject = Project('weekly');
 
 const finishProject = Task('finish project', 'make todo list', 'sunday', 3);
@@ -32,11 +33,7 @@ weeklyProject.addTask(finishProject);
 
 todoList.addProject(weeklyProject);
 renderProject(weeklyProject);
+/////////////////weekly
 
 addProjectButton();
 addTaskButton();
-
-console.log(dailyProject);
-
-
-

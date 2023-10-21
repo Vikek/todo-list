@@ -1,4 +1,5 @@
 import Task from "./task";
+import { renderTask } from "./render";
 import todoList from "./todoList";
 
 function addTaskButton() {
@@ -28,6 +29,7 @@ function taskFormOnSubmit(e) {
     const formObject = Object.fromEntries(new FormData(e.target).entries());
     const task = Task(formObject.name, formObject.description, formObject.dueDate, formObject.priority);
     todoList.getActiveProject().addTask(task);
+    renderTask(task);
     e.target.reset();
     taskFormClose();
 }

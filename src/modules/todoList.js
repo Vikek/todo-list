@@ -6,7 +6,11 @@ const todoList = (function() {
         projects.push(project);
     }
     function setActiveProject(project) {
+        if(activeProject) {
+            activeProject.taskContainer.classList.remove('active');
+        }
         activeProject = project;
+        project.taskContainer.classList.add('active');
     }
     function getActiveProject() {
         return activeProject;

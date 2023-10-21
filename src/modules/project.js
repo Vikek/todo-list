@@ -3,6 +3,10 @@ const Project = (name) => {
 
     project.name = name;
 
+    project.taskContainer = document.createElement('div');
+    project.taskContainer.id = project.name;
+    document.getElementById('main').appendChild(project.taskContainer);
+
     project.tasks = [];
     project.addTask = function (task) {
         project.tasks.push(task);

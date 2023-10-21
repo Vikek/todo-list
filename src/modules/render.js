@@ -1,3 +1,5 @@
+import todoList from "./todoList";
+
 function renderProject(project) {
     const projectContainer = document.createElement('div');
 
@@ -6,15 +8,19 @@ function renderProject(project) {
 
     projectContainer.appendChild(projectName);
 
-    project.tasks.forEach(task => {
-        renderTask(task);
+    projectContainer.addEventListener('click', function() {
+        todoList.setActiveProject(project); //change active project to new project when clicked
     });
-    
+
     document.getElementById('sidebar').appendChild(projectContainer);
+
+    project.tasks.forEach(task => {
+        renderTask(task, project);
+    });
 }
 
-function renderTask(task) {
-    const taskContainer = document.createElement('div');
+function renderTask(task, project) {
+    const taskDiv = document.createElement('div');
 
     const taskName = document.createElement('h3');
     taskName.textContent = task.name;
@@ -38,13 +44,19 @@ function renderTask(task) {
     }
 
     if (task.completed) { //add class if task is completed for styling
-        taskContainer.classList.add('completed');
+        taskDiv.classList.add('completed');
     }
 
-    taskContainer.appendChild(taskName);
-    taskContainer.appendChild(taskDueDate);
-    taskContainer.appendChild(taskPriority);
-    document.getElementById('main').appendChild(taskContainer);
+    taskDiv.appendChild(taskName);
+    taskDiv.appendChild(taskDueDate);
+    taskDiv.appendChild(taskPriority);
+
+    if (project) {
+        project.taskContainer.appendChild(taskDiv);
+    } else {
+        todoList.getActiveProject().taskContainer.appendChild(taskDiv);
+    }
 }
 
 export default renderProject;
+export {renderTask};
