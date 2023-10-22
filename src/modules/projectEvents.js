@@ -6,7 +6,6 @@ function addProjectButton() {
     const addProjectBtn = document.createElement('button');
     addProjectBtn.id = 'add-project-btn';
 
-    addProjectBtn.textContent = 'add project';
     addProjectBtn.addEventListener('click', () => addProjectEvent());
     document.getElementById('sidebar').appendChild(addProjectBtn);
 

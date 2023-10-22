@@ -2,6 +2,7 @@ import todoList from "./todoList";
 
 function renderProject(project) {
     const projectContainer = document.createElement('div');
+    projectContainer.id = project.name;
 
     const projectName = document.createElement('h2');
     projectName.textContent = project.name;

@@ -6,7 +6,7 @@ function addTaskButton() {
     const addTaskBtn = document.createElement('button');
     addTaskBtn.id = 'add-task-btn';
 
-    addTaskBtn.textContent = 'add task';
+    //addTaskBtn.textContent = 'add task';
     addTaskBtn.addEventListener('click', () => addTaskEvent());
     document.getElementById('main').appendChild(addTaskBtn);
 

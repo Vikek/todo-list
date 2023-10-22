@@ -1,0 +1,61 @@
+#sidebar {
+    background-color: var(--sidebar-background-color);
+    display: grid;
+    gap: 20px;
+    padding: 30px;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+#sidebar > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+#sidebar > div:hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--main-content-background-color) 90%, gray);
+}
+
+#sidebar > div.active {
+    background-color: var(--main-content-background-color);
+}
+
+#add-project-btn {
+    position: absolute;
+    background-color: var(--sidebar-background-color);
+    bottom: 10px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-project-btn::before, #add-project-btn::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    width: 36px;
+    height: 8px;
+}
+
+#add-project-btn::before {
+    transform: rotate(90deg);
+}
+
+#add-project-btn:hover {
+    transform: scale(1.2);
+}
+
+#project-popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--form-background-color);
+    padding: 10px;
+    border-radius: 10px;
+}

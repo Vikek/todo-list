@@ -4,7 +4,7 @@ const Project = (name) => {
     project.name = name;
 
     project.taskContainer = document.createElement('div');
-    project.taskContainer.id = project.name;
+    project.taskContainer.id = `${project.name}-tasks`;
     document.getElementById('main').appendChild(project.taskContainer);
 
     project.tasks = [];

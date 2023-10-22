@@ -4,7 +4,11 @@ import Task from "./modules/task";
 import renderProject from "./modules/render";
 import addProjectButton from "./modules/projectEvents";
 import addTaskButton from "./modules/taskEvents";
-import './styles.css';
+
+import './styles/styles.css';
+import './styles/main.css';
+import './styles/header.css';
+import './styles/sidebar.css';
 
 ////////////////daily
 const dailyProject = Project('daily');
@@ -18,9 +22,10 @@ dailyProject.addTask(eatFood);
 dailyProject.addTask(shower);
 
 todoList.addProject(dailyProject);
+renderProject(dailyProject);
 todoList.setActiveProject(dailyProject);
 
-renderProject(dailyProject);
+//renderProject(dailyProject);
 
 
 /////////////////daily
