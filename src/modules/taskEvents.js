@@ -18,11 +18,16 @@ function addTaskButton() {
 }
 
 function addTaskEvent() {
-    document.getElementById('task-popup-form').style.display = 'grid';
+    const popupForm = document.getElementById('task-popup-form');
+    popupForm.style.visibility = 'visible';
+    popupForm.style.opacity = 1;
 }
 
 function taskFormClose() {
-    document.getElementById('task-popup-form').style.display = 'none';
+    const popupForm = document.getElementById('task-popup-form');
+    popupForm.style.visibility = 'hidden';
+    popupForm.style.opacity = 0;
+    document.getElementById('form-task').reset();
 }
 
 function taskFormOnSubmit(e) {

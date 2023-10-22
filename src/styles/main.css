@@ -52,13 +52,16 @@
 }
 
 #task-popup-form {
-    display: none;
+    display: grid;
     position: fixed;
     top: 50%;
     left: 50%;
     background-color: var(--form-background-color);
     padding: 10px;
     border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 #task-popup-form .row {

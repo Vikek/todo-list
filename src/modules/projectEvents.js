@@ -17,11 +17,15 @@ function addProjectButton() {
 }
 
 function addProjectEvent() {
-    document.getElementById('project-popup-form').style.display = 'block';
+    const popupForm = document.getElementById('project-popup-form');
+    popupForm.style.visibility = 'visible';
+    popupForm.style.opacity = 1;
 }
 
 function projectFormClose() {
-    document.getElementById('project-popup-form').style.display = 'none';
+    const popupForm = document.getElementById('project-popup-form');
+    popupForm.style.visibility = 'hidden';
+    popupForm.style.opacity = 0;
     document.getElementById('form-project').reset();
 }
 
