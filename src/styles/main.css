@@ -15,15 +15,43 @@
     align-items: center;
 }
 
-#main > div > div {
-    height: 60px;
+#main > div > div { 
+    height: 40px;
     width: 800px;
-    border-radius: 40px;
+    font-size: 14px;
+    border-radius: 20px;
     display: flex;
-    gap: 16px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--task-background-color);
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0px 0px 2px black;
+}
+
+#main > div > div > * {
+    flex: 1;
+}
+
+#main > div > div > :first-child {
+    min-width: 40%;
+}
+
+#main > div > div.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+#main > div > div.low-priority {
+    border-right: 10px solid rgb(43, 156, 43);
+}
+
+#main > div > div.medium-priority {
+    border-right: 10px solid rgb(253, 188, 67);
+}
+
+#main > div > div.high-priority {
+    border-right: 10px solid rgb(255, 68, 68);
 }
 
 #add-task-btn {

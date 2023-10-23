@@ -29,20 +29,26 @@ function renderTask(task, project) {
     const taskDueDate = document.createElement('div');
     taskDueDate.textContent = task.dueDate;
 
-    const taskPriority = document.createElement('div');
     switch (task.priority) {
         case 1:
-            taskPriority.classList.add('low-priority');
+            taskDiv.classList.add('low-priority');
             break;
     
         case 2:
-            taskPriority.classList.add('medium-priority');
+            taskDiv.classList.add('medium-priority');
             break;
 
         case 3:
-            taskPriority.classList.add('high-priority');
+            taskDiv.classList.add('high-priority');
             break;
     }
+
+    const taskCompleted = document.createElement('input');
+    taskCompleted.type = 'checkbox';
+    taskCompleted.addEventListener('change', () => {
+        task.completed = !task.completed;
+        taskDiv.classList.toggle('completed');
+    });
 
     if (task.completed) { //add class if task is completed for styling
         taskDiv.classList.add('completed');
@@ -50,7 +56,7 @@ function renderTask(task, project) {
 
     taskDiv.appendChild(taskName);
     taskDiv.appendChild(taskDueDate);
-    taskDiv.appendChild(taskPriority);
+    taskDiv.appendChild(taskCompleted);
 
     if (project) {
         project.taskContainer.appendChild(taskDiv);
