@@ -7,10 +7,12 @@ function addTaskButton() {
     addTaskBtn.id = 'add-task-btn';
     const text = document.createElement('p');
     text.textContent = 'add task';
-    const addSign = document.createElement('div');
-    addSign.classList.add('sign');
+    const plusSign = document.createElement('span')
+    plusSign.textContent = '+';
+    plusSign.classList.add('plus-sign');
+    
     addTaskBtn.appendChild(text);
-    addTaskBtn.appendChild(addSign);
+    addTaskBtn.appendChild(plusSign);
 
     addTaskBtn.addEventListener('click', () => addTaskEvent());
     document.getElementById('main').appendChild(addTaskBtn);

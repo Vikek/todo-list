@@ -24,7 +24,7 @@
     font-size: 24px;
 }
 
-#add-project-btn span {
+#add-project-btn .plus-sign {
     border-radius: 100%;
     color: var(--sidebar-background-color);
     background-color: var(--text-color-dark);

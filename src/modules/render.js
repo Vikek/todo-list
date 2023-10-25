@@ -21,7 +21,7 @@ function renderProject(project) {
 }
 
 function renderTask(task, project) {
-    const taskDiv = document.createElement('div');
+    const taskContainer = document.createElement('div');
 
     const taskName = document.createElement('h3');
     taskName.textContent = task.name;
@@ -31,15 +31,15 @@ function renderTask(task, project) {
 
     switch (Number(task.priority)) {
         case 1:
-            taskDiv.classList.add('low-priority');
+            taskContainer.classList.add('low-priority');
             break;
     
         case 2:
-            taskDiv.classList.add('medium-priority');
+            taskContainer.classList.add('medium-priority');
             break;
 
         case 3:
-            taskDiv.classList.add('high-priority');
+            taskContainer.classList.add('high-priority');
             break;
     }
 
@@ -47,21 +47,21 @@ function renderTask(task, project) {
     taskCompleted.type = 'checkbox';
     taskCompleted.addEventListener('change', () => {
         task.completed = !task.completed;
-        taskDiv.classList.toggle('completed');
+        taskContainer.classList.toggle('completed');
     });
 
     if (task.completed) { //add class if task is completed for styling
-        taskDiv.classList.add('completed');
+        taskContainer.classList.add('completed');
     }
 
-    taskDiv.appendChild(taskName);
-    taskDiv.appendChild(taskDueDate);
-    taskDiv.appendChild(taskCompleted);
+    taskContainer.appendChild(taskName);
+    taskContainer.appendChild(taskDueDate);
+    taskContainer.appendChild(taskCompleted);
 
     if (project) {
-        project.taskContainer.appendChild(taskDiv);
+        project.taskContainer.appendChild(taskContainer);
     } else {
-        todoList.getActiveProject().taskContainer.appendChild(taskDiv);
+        todoList.getActiveProject().taskContainer.appendChild(taskContainer);
     }
 }
 
