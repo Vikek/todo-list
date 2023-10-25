@@ -5,8 +5,13 @@ import todoList from "./todoList";
 function addTaskButton() {
     const addTaskBtn = document.createElement('button');
     addTaskBtn.id = 'add-task-btn';
+    const text = document.createElement('p');
+    text.textContent = 'add task';
+    const addSign = document.createElement('div');
+    addSign.classList.add('sign');
+    addTaskBtn.appendChild(text);
+    addTaskBtn.appendChild(addSign);
 
-    //addTaskBtn.textContent = 'add task';
     addTaskBtn.addEventListener('click', () => addTaskEvent());
     document.getElementById('main').appendChild(addTaskBtn);
 

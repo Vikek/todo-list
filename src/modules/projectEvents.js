@@ -5,6 +5,14 @@ import todoList from "./todoList";
 function addProjectButton() {
     const addProjectBtn = document.createElement('button');
     addProjectBtn.id = 'add-project-btn';
+    const text = document.createElement('p');
+    text.textContent = 'add project';
+    const plusSign = document.createElement('span')
+    plusSign.textContent = '+';
+    plusSign.classList.add('plus-sign');
+
+    addProjectBtn.appendChild(text);
+    addProjectBtn.appendChild(plusSign);
 
     addProjectBtn.addEventListener('click', () => addProjectEvent());
     document.getElementById('sidebar').appendChild(addProjectBtn);

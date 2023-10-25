@@ -1,5 +1,6 @@
 #main {
     background-color: var(--main-content-background-color);
+    position: relative;
 }
 
 #main > div {
@@ -19,11 +20,12 @@
     height: 40px;
     width: 800px;
     font-size: 14px;
-    border-radius: 20px;
+    border-radius: 5px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: var(--task-background-color);
+    color: var(--text-color-dark);
     padding-left: 10%;
     padding-right: 10%;
     box-shadow: 0px 0px 2px black;
@@ -43,31 +45,37 @@
 }
 
 #main > div > div.low-priority {
-    border-right: 10px solid rgb(43, 156, 43);
+    border-right: 5px solid rgb(43, 156, 43);
 }
 
 #main > div > div.medium-priority {
-    border-right: 10px solid rgb(253, 188, 67);
+    border-right: 5px solid rgb(253, 188, 67);
 }
 
 #main > div > div.high-priority {
-    border-right: 10px solid rgb(255, 68, 68);
+    border-right: 5px solid rgb(255, 68, 68);
 }
 
 #add-task-btn {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: 10%;
+    right: 10%;
     background-color: var(--main-content-background-color);
     border: none;
-    height: 40px;
-    width: 40px;
     display: flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-#add-task-btn::before, #add-task-btn::after {
+#add-task-btn > p {
+    position: relative;
+    top: 2px;
+}
+
+#add-task-btn .sign::before, #add-task-btn .sign::after {
     content: '';
     position: absolute;
     background-color: black;
@@ -75,7 +83,7 @@
     height: 8px;
 }
 
-#add-task-btn::before {
+#add-task-btn .sign::before {
     transform: rotate(90deg);
 }
 

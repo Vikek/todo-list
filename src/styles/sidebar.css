@@ -1,53 +1,45 @@
 #sidebar {
     background-color: var(--sidebar-background-color);
-    display: grid;
-    gap: 20px;
-    padding: 30px;
-    grid-template-rows: repeat(10, 1fr);
+    position: relative;
+    padding: 10px;
 }
 
-#sidebar > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
+#sidebar li, #add-project-btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: var(--text-color-dark);
 }
 
-#sidebar > div:hover {
-    cursor: pointer;
-    background-color: color-mix(in srgb, var(--main-content-background-color) 90%, gray);
-}
-
-#sidebar > div.active {
+#sidebar li.active {
     background-color: var(--main-content-background-color);
 }
 
 #add-project-btn {
-    position: absolute;
     background-color: var(--sidebar-background-color);
-    bottom: 10px;
-    height: 40px;
-    width: 40px;
+    width: 100%;
     border: none;
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    font-size: 24px;
+}
+
+#add-project-btn span {
+    border-radius: 100%;
+    color: var(--sidebar-background-color);
+    background-color: var(--text-color-dark);
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 4px;
 }
 
-#add-project-btn::before, #add-project-btn::after {
-    content: '';
-    position: absolute;
-    background-color: black;
-    width: 36px;
-    height: 8px;
-}
-
-#add-project-btn::before {
-    transform: rotate(90deg);
-}
-
-#add-project-btn:hover {
-    transform: scale(1.2);
+#add-project-btn:hover, #sidebar li:hover {
+    cursor: pointer;
+    background-color: var(--main-content-background-color);
 }
 
 #project-popup-form {

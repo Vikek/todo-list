@@ -1,7 +1,7 @@
 import todoList from "./todoList";
 
 function renderProject(project) {
-    const projectContainer = document.createElement('div');
+    const projectContainer = document.createElement('li');
     projectContainer.id = project.name;
 
     const projectName = document.createElement('h2');
@@ -13,7 +13,7 @@ function renderProject(project) {
         todoList.setActiveProject(project); //change active project to new project when clicked
     });
 
-    document.getElementById('sidebar').appendChild(projectContainer);
+    document.getElementById('sidebar-nav').appendChild(projectContainer);
 
     project.tasks.forEach(task => {
         renderTask(task, project);
@@ -29,7 +29,7 @@ function renderTask(task, project) {
     const taskDueDate = document.createElement('div');
     taskDueDate.textContent = task.dueDate;
 
-    switch (task.priority) {
+    switch (Number(task.priority)) {
         case 1:
             taskDiv.classList.add('low-priority');
             break;
