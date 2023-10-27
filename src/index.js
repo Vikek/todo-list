@@ -5,10 +5,13 @@ import renderProject from "./modules/render";
 import addProjectButton from "./modules/projectEvents";
 import addTaskButton from "./modules/taskEvents";
 
+import GithubIcon from './assets/github-mark-white.png';
+
 import './styles/styles.css';
 import './styles/main.css';
 import './styles/header.css';
 import './styles/sidebar.css';
+import './styles/footer.css';
 
 ////////////////daily
 const dailyProject = Project('daily');
@@ -42,3 +45,8 @@ renderProject(weeklyProject);
 
 addProjectButton();
 addTaskButton();
+
+/////////////////footer
+const githubIcon = document.createElement('img');
+githubIcon.src = GithubIcon;
+document.getElementById('github-link').appendChild(githubIcon);

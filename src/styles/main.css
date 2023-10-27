@@ -75,7 +75,7 @@
 
 #add-task-btn .plus-sign {
     border-radius: 100%;
-    color: var(--sidebar-background-color);
+    color: var(--main-content-background-color);
     background-color: var(--text-color-dark);
     display: flex;
     justify-content: center;
@@ -91,6 +91,7 @@
     transform: translateY(-2px);
     border: none;
     box-shadow: 0px 0px 2px black;
+    cursor: pointer;
 }
 
 #task-popup-form {

@@ -1,7 +1,9 @@
 :root {
-    --header-background-color: #546db3;
+    --header-background-color: linear-gradient(16deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 36%, rgba(0,125,255,1) 100%);
     --sidebar-background-color: #ccd7e7;
+    --sidebar-project-color: #eef3fc;
     --main-content-background-color: #f8fafc;
+    --footer-background-color: #020024;
     --task-background-color: #e2e8f0;
     --form-background-color: #64748b;
     --text-color-dark: #0f172a;
@@ -23,7 +25,7 @@ html, body {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 10fr 0.5fr;
     justify-content: center;
     align-items: center;
 }
@@ -34,4 +36,5 @@ html, body {
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 300px 3fr;
+    overflow-y: auto;
 }
