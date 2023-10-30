@@ -45,15 +45,15 @@
 }
 
 #main > div > div.low-priority {
-    border-right: 5px solid rgb(43, 156, 43);
+    border-right: 5px solid var(--priority-low);
 }
 
 #main > div > div.medium-priority {
-    border-right: 5px solid rgb(253, 188, 67);
+    border-right: 5px solid var(--priority-medium);
 }
 
 #main > div > div.high-priority {
-    border-right: 5px solid rgb(255, 68, 68);
+    border-right: 5px solid var(--priority-high);
 }
 
 #add-task-btn {
@@ -80,9 +80,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 16px;
-    width: 16px;
-    font-size: 20px;
+    height: 18px;
+    width: 18px;
+    font-size: 18px;
     position: relative;
 }
 
@@ -95,7 +95,6 @@
 }
 
 #task-popup-form {
-    display: grid;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -107,10 +106,96 @@
     transition: visibility 0s, opacity 0.5s linear;
 }
 
+#form-task {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--text-color-light);
+    font-weight: bold;
+}
+
 #task-popup-form .row {
     display: grid;
+    width: 100%;
+    gap: 5px;
+}
+
+#task-popup-form input {
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 #task-popup-form .radio-buttons {
     display: flex;
+    justify-content: space-between;
+}
+
+#task-popup-form .radio-buttons input[type=radio] {
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+}
+
+#task-popup-form .radio-buttons .radio-row {
+    display: flex;
+}
+
+#radio-low, #radio-medium, #radio-high {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--main-content-background-color);
+    color: var(--text-color-dark);
+}
+
+#low:checked + #radio-low, #radio-low:hover {
+    background-color: var(--priority-low);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+#medium:checked + #radio-medium, #radio-medium:hover {
+    background-color: var(--priority-medium);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+#high:checked + #radio-high, #radio-high:hover {
+    background-color: var(--priority-high);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+#task-popup-form .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.buttons #task-form-submit,.buttons #task-form-close {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#task-form-submit {
+    background-color: #63d863;
+}
+
+#task-form-submit:hover {
+    background-color: #63d863cc;
+    cursor: pointer;
+}
+
+#task-form-close {
+    background-color: #ee7d7d;
+}
+
+#task-form-close:hover {
+    background-color: #ee7d7dcc;
+    cursor: pointer;
 }

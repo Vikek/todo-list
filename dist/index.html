@@ -27,7 +27,7 @@
 
                     <div class="row">
                         <input type="submit" id="project-form-submit" value="Confirm">
-                        <button type="button" id="project-form-close">Cancel</button>
+                        <input type="button" id="project-form-close" value="Cancel">
                     </div>
                 </form>
             </div>
@@ -36,34 +36,39 @@
                     <h2>Add task</h2>
 
                     <div class="row">
-                        <label for="task-name">name</label>
+                        <label for="task-name">Name</label>
                         <input type="text" id="task-name" name="name" required>
                     </div>
 
                     <div class="row">
-                        <label for="description">description</label>
+                        <label for="description">Description</label>
                         <input type="text" id="description" name="description">
                     </div>
 
                     <div class="row">
-                        <label for="dueDate">due date</label>
+                        <label for="dueDate">Due Date</label>
                         <input type="date" id="dueDate" name="dueDate">
                     </div>
 
-                    <label>priority</label>
-
                     <div class="row radio-buttons">
-                        <label for="low">low</label>
-                        <input type="radio" name="priority" id="low" value="1">
-                        <label for="medium">medium</label>
-                        <input type="radio" name="priority" id="medium" value="2">
-                        <label for="high">high</label>
-                        <input type="radio" name="priority" id="high" value="3">
+                        <label>Priority:</label>
+                        <div class="radio-row">
+                            <input type="radio" name="priority" id="low" value="1">
+                            <label for="low" id="radio-low">Low</label>
+                        </div>
+                        <div class="radio-row">
+                            <input type="radio" name="priority" id="medium" value="2">
+                            <label for="medium" id="radio-medium">Medium</label>
+                        </div>
+                        <div class="radio-row">
+                            <input type="radio" name="priority" id="high" value="3">
+                            <label for="high" id="radio-high">High</label>
+                        </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row buttons">
                         <input type="submit" id="task-form-submit" value="Confirm">
-                        <button type="button" id="task-form-close">Cancel</button>
+                        <input type="button" id="task-form-close" value="Cancel">
                     </div>
                 </form>
             </div>

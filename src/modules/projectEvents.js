@@ -7,6 +7,7 @@ function addProjectButton() {
     addProjectBtn.id = 'add-project-btn';
     const text = document.createElement('p');
     text.textContent = 'add project';
+    
     const plusSign = document.createElement('span')
     plusSign.textContent = '+';
     plusSign.classList.add('plus-sign');

@@ -39,6 +39,7 @@
     align-items: center;
     height: 20px;
     width: 20px;
+    font-size: 20px;
     position: relative;
     top: 4px;
 }
@@ -49,7 +50,6 @@
 }
 
 #project-popup-form {
-    display: block;
     position: fixed;
     top: 50vh;
     left: 2vw;
@@ -102,6 +102,7 @@
 
 #project-form-submit:hover {
     background-color: #63d863cc;
+    cursor: pointer;
 }
 
 #project-form-close {
@@ -110,4 +111,5 @@
 
 #project-form-close:hover {
     background-color: #ee7d7dcc;
+    cursor: pointer;
 }

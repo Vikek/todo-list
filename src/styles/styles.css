@@ -8,6 +8,9 @@
     --form-background-color: #05015c;
     --text-color-dark: #0f172a;
     --text-color-light: #f1f5f9;
+    --priority-high: #ff4444;
+    --priority-medium: #f19d00;
+    --priority-low: #2b9c2b;
 }
 
 * {
