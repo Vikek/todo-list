@@ -54,9 +54,28 @@ function renderTask(task, project) {
         taskContainer.classList.add('completed');
     }
 
+    const deleteTaskBtn = document.createElement('button');
+    const deleteTaskSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    deleteTaskSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    deleteTaskSvg.setAttribute("viewBox", "0 0 24 24");
+    deleteTaskSvg.innerHTML = '<path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />';
+    deleteTaskBtn.appendChild(deleteTaskSvg);
+    //deleteTaskBtn.textContent = 'x';
+    deleteTaskBtn.addEventListener('click', (e) => {
+        const activeProject = todoList.getActiveProject();
+        const tasks = activeProject.getTasks();
+        tasks.forEach(currentTask => {
+            if(task === currentTask) {
+                activeProject.removeTask(task);
+                e.currentTarget.parentNode.remove();
+            }
+        });
+    });
+
+    taskContainer.appendChild(taskCompleted);
     taskContainer.appendChild(taskName);
     taskContainer.appendChild(taskDueDate);
-    taskContainer.appendChild(taskCompleted);
+    taskContainer.appendChild(deleteTaskBtn);
 
     if (project) {
         project.taskContainer.appendChild(taskContainer);
