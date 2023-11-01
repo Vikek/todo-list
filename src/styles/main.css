@@ -57,7 +57,7 @@
     height: 26px;
     border: none;
     background: none;
-    fill: red;
+    fill: #d60000;
     justify-self: end;
 }
 
@@ -101,21 +101,16 @@
 }
 
 #add-task-btn .plus-sign {
-    border-radius: 100%;
-    color: var(--main-content-background-color);
-    background-color: var(--text-color-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 18px;
-    width: 18px;
-    font-size: 18px;
+    height: 20px;
+    width: 20px;
     position: relative;
+    bottom: 1px;
+    fill: var(--text-color-dark);
 }
 
 #add-task-btn:hover {
     background-color: var(--task-background-color);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     border: none;
     box-shadow: 0px 0px 2px black;
     cursor: pointer;

@@ -10,6 +10,11 @@
     color: var(--text-color-dark);
 }
 
+#sidebar li {
+    display: flex;
+    gap: 10px;
+}
+
 #sidebar li.active {
     background-color: var(--sidebar-project-color);
 }
@@ -17,7 +22,7 @@
 #sidebar > :nth-last-child(2) {
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: 2px solid var(--sidebar-project-color);
+    border-bottom: 2px solid var(--text-color-dark);
 }
 
 #add-project-btn {
@@ -25,23 +30,17 @@
     width: 100%;
     border: none;
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: nowrap;
     font-size: 24px;
 }
 
-#add-project-btn .plus-sign {
-    border-radius: 100%;
-    color: var(--sidebar-background-color);
-    background-color: var(--text-color-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20px;
-    width: 20px;
-    font-size: 20px;
+#add-project-btn .plus-sign, #sidebar li .project-icon {
+    height: 24px;
+    width: 24px;
     position: relative;
-    top: 4px;
+    top: 2px;
+    fill: var(--text-color-dark);
 }
 
 #add-project-btn:hover, #sidebar li:hover {
