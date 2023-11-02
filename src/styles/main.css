@@ -66,6 +66,11 @@
     cursor: pointer;
 }
 
+#main .task-date {
+    color: #00008d;
+    font-weight: 600;
+}
+
 #main > div > div.completed {
     opacity: 0.5;
     text-decoration: line-through;

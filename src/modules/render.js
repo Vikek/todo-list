@@ -1,4 +1,5 @@
 import todoList from "./todoList";
+import format from "date-fns/format";
 
 function renderProject(project) {
     const projectContainer = document.createElement('li');
@@ -36,7 +37,8 @@ function renderTask(task, project) {
     taskName.textContent = task.name;
 
     const taskDueDate = document.createElement('div');
-    taskDueDate.textContent = task.dueDate;
+    taskDueDate.classList.add('task-date');
+    taskDueDate.textContent = format(task.dueDate, 'MMM do');
 
     switch (Number(task.priority)) {
         case 1:

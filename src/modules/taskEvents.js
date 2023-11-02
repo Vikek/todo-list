@@ -46,7 +46,7 @@ function taskFormClose() {
 
 function taskFormOnSubmit(e) {
     const formObject = Object.fromEntries(new FormData(e.target).entries());
-    const task = Task(formObject.name, formObject.description, formObject.dueDate, formObject.priority);
+    const task = Task(formObject.name, formObject.description, new Date(formObject.dueDate), formObject.priority);
     todoList.getActiveProject().addTask(task);
     renderTask(task);
     e.target.reset();

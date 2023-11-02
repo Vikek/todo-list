@@ -16,9 +16,9 @@ import './styles/footer.css';
 ////////////////daily
 const dailyProject = Project('daily');
 
-const brushTeeth = Task('brush teeth', '', '11:00', 1);
-const eatFood = Task('eat', 'pancakes', '19:00', 3);
-const shower = Task('shower', '', '23:00', 2);
+const brushTeeth = Task('brush teeth', '', new Date(), 1);
+const eatFood = Task('eat', 'pancakes', new Date(), 3);
+const shower = Task('shower', '', new Date(), 2);
 
 dailyProject.addTask(brushTeeth);
 dailyProject.addTask(eatFood);
@@ -35,7 +35,7 @@ todoList.setActiveProject(dailyProject);
 /////////////////weekly
 const weeklyProject = Project('weekly');
 
-const finishProject = Task('finish project', 'make todo list', 'sunday', 3);
+const finishProject = Task('finish project', 'make todo list', new Date(), 3);
 
 weeklyProject.addTask(finishProject);
 
