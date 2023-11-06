@@ -2,14 +2,19 @@ import Task from "./task";
 import { renderTask } from "./render";
 import todoList from "./todoList";
 
+function taskFormClose() {
+    const popupForm = document.getElementById('task-popup-form');
+    popupForm.style.visibility = 'hidden';
+    popupForm.style.opacity = 0;
+    document.getElementById('form-task').reset();
+}
+
 function addTaskButton() {
     const addTaskBtn = document.createElement('button');
     addTaskBtn.id = 'add-task-btn';
     const text = document.createElement('p');
     text.textContent = 'add task';
-    // const plusSign = document.createElement('span')
-    // plusSign.textContent = '+';
-    // plusSign.classList.add('plus-sign');
+    
     const plusSign = document.createElement('div');
     plusSign.classList.add('plus-sign');
     const plusSignSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -21,36 +26,23 @@ function addTaskButton() {
     addTaskBtn.appendChild(plusSign);
     addTaskBtn.appendChild(text);
 
-    addTaskBtn.addEventListener('click', () => addTaskEvent());
+    addTaskBtn.addEventListener('click', () => {
+        const popupForm = document.getElementById('task-popup-form');
+        popupForm.style.visibility = 'visible';
+        popupForm.style.opacity = 1;
+    });
     document.getElementById('main').appendChild(addTaskBtn);
 
-    document.getElementById('form-task').addEventListener('submit', function(e) {
+    document.getElementById('form-task').addEventListener('submit', (e) => {
         e.preventDefault();
-        taskFormOnSubmit(e);
+        const formObject = Object.fromEntries(new FormData(e.target).entries());
+        const task = Task(formObject.name, formObject.description, new Date(formObject.dueDate), formObject.priority);
+        todoList.getActiveProject().addTask(task);
+        renderTask(task);
+        e.target.reset();
+        taskFormClose();
     });
     document.getElementById('task-form-close').addEventListener('click', () => taskFormClose());
-}
-
-function addTaskEvent() {
-    const popupForm = document.getElementById('task-popup-form');
-    popupForm.style.visibility = 'visible';
-    popupForm.style.opacity = 1;
-}
-
-function taskFormClose() {
-    const popupForm = document.getElementById('task-popup-form');
-    popupForm.style.visibility = 'hidden';
-    popupForm.style.opacity = 0;
-    document.getElementById('form-task').reset();
-}
-
-function taskFormOnSubmit(e) {
-    const formObject = Object.fromEntries(new FormData(e.target).entries());
-    const task = Task(formObject.name, formObject.description, new Date(formObject.dueDate), formObject.priority);
-    todoList.getActiveProject().addTask(task);
-    renderTask(task);
-    e.target.reset();
-    taskFormClose();
 }
 
 export default addTaskButton;

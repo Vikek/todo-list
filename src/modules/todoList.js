@@ -1,5 +1,5 @@
-const todoList = (function() {
-    let projects = [];
+const todoList = (() => {
+    const projects = [];
     let activeProject;
 
     function addProject(project) {

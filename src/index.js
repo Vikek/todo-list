@@ -1,9 +1,9 @@
-import todoList from "./modules/todoList";
-import Project from "./modules/project";
-import Task from "./modules/task";
-import renderProject from "./modules/render";
-import addProjectButton from "./modules/projectEvents";
-import addTaskButton from "./modules/taskEvents";
+import todoList from './modules/todoList';
+import Project from './modules/project';
+import Task from './modules/task';
+import renderProject from './modules/render';
+import addProjectButton from './modules/projectEvents';
+import addTaskButton from './modules/taskEvents';
 
 import GithubIcon from './assets/github-mark-white.png';
 
@@ -13,7 +13,7 @@ import './styles/header.css';
 import './styles/sidebar.css';
 import './styles/footer.css';
 
-////////////////daily
+/// /////////////daily
 const dailyProject = Project('daily');
 
 const brushTeeth = Task('brush teeth', '', new Date(), 1);
@@ -28,11 +28,10 @@ todoList.addProject(dailyProject);
 renderProject(dailyProject);
 todoList.setActiveProject(dailyProject);
 
-//renderProject(dailyProject);
+// renderProject(dailyProject);
 
-
-/////////////////daily
-/////////////////weekly
+/// //////////////daily
+/// //////////////weekly
 const weeklyProject = Project('weekly');
 
 const finishProject = Task('finish project', 'make todo list', new Date(), 3);
@@ -41,12 +40,12 @@ weeklyProject.addTask(finishProject);
 
 todoList.addProject(weeklyProject);
 renderProject(weeklyProject);
-/////////////////weekly
+/// //////////////weekly
 
 addProjectButton();
 addTaskButton();
 
-/////////////////footer
+/// //////////////footer
 const githubIcon = document.createElement('img');
 githubIcon.src = GithubIcon;
 document.getElementById('github-link').appendChild(githubIcon);

@@ -1,34 +1,5 @@
-import todoList from "./todoList";
 import format from "date-fns/format";
-
-function renderProject(project) {
-    const projectContainer = document.createElement('li');
-    projectContainer.id = project.name;
-
-    const projectIcon = document.createElement('div');
-    projectIcon.classList.add('project-icon');
-    const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    projectIconSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    projectIconSvg.setAttribute("viewBox", "0 0 24 24");
-    projectIconSvg.innerHTML = '<path d="M19 3H14.82C14.4 1.84 13.3 1 12 1S9.6 1.84 9.18 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M7 8H9V12H8V9H7V8M10 17V18H7V17.08L9 15H7V14H9.25C9.66 14 10 14.34 10 14.75C10 14.95 9.92 15.14 9.79 15.27L8.12 17H10M11 4C11 3.45 11.45 3 12 3S13 3.45 13 4 12.55 5 12 5 11 4.55 11 4M17 17H12V15H17V17M17 11H12V9H17V11Z" />';
-    projectIcon.appendChild(projectIconSvg);
-
-    const projectName = document.createElement('h2');
-    projectName.textContent = project.name;
-
-    projectContainer.appendChild(projectIcon);
-    projectContainer.appendChild(projectName);
-
-    projectContainer.addEventListener('click', function() {
-        todoList.setActiveProject(project); //change active project to new project when clicked
-    });
-
-    document.getElementById('sidebar-nav').appendChild(projectContainer);
-
-    project.tasks.forEach(task => {
-        renderTask(task, project);
-    });
-}
+import todoList from "./todoList";
 
 function renderTask(task, project) {
     const taskContainer = document.createElement('div');
@@ -52,16 +23,19 @@ function renderTask(task, project) {
         case 3:
             taskContainer.classList.add('high-priority');
             break;
+
+        default:
     }
 
     const taskCompleted = document.createElement('input');
     taskCompleted.type = 'checkbox';
     taskCompleted.addEventListener('change', () => {
-        task.completed = !task.completed;
+        const completed = !task.completed;
+        task.setComplete(completed);
         taskContainer.classList.toggle('completed');
     });
 
-    if (task.completed) { //add class if task is completed for styling
+    if (task.completed) { // add class if task is completed for styling
         taskContainer.classList.add('completed');
     }
 
@@ -93,6 +67,35 @@ function renderTask(task, project) {
     } else {
         todoList.getActiveProject().taskContainer.appendChild(taskContainer);
     }
+}
+
+function renderProject(project) {
+    const projectContainer = document.createElement('li');
+    projectContainer.id = project.name;
+
+    const projectIcon = document.createElement('div');
+    projectIcon.classList.add('project-icon');
+    const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    projectIconSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    projectIconSvg.setAttribute("viewBox", "0 0 24 24");
+    projectIconSvg.innerHTML = '<path d="M19 3H14.82C14.4 1.84 13.3 1 12 1S9.6 1.84 9.18 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M7 8H9V12H8V9H7V8M10 17V18H7V17.08L9 15H7V14H9.25C9.66 14 10 14.34 10 14.75C10 14.95 9.92 15.14 9.79 15.27L8.12 17H10M11 4C11 3.45 11.45 3 12 3S13 3.45 13 4 12.55 5 12 5 11 4.55 11 4M17 17H12V15H17V17M17 11H12V9H17V11Z" />';
+    projectIcon.appendChild(projectIconSvg);
+
+    const projectName = document.createElement('h2');
+    projectName.textContent = project.name;
+
+    projectContainer.appendChild(projectIcon);
+    projectContainer.appendChild(projectName);
+
+    projectContainer.addEventListener('click', () => {
+        todoList.setActiveProject(project); // change active project to new project when clicked
+    });
+
+    document.getElementById('sidebar-nav').appendChild(projectContainer);
+
+    project.tasks.forEach(task => {
+        renderTask(task, project);
+    });
 }
 
 export default renderProject;
